@@ -1,11 +1,12 @@
 import react, { createContext,useState ,useEffect} from 'react';
 import axios from "axios";
-import { User } from '../schemas/User.ts';
+import type { User } from '../schemas/User.ts';
 
 
 interface AuthContextType{
     currentUser : User | null;
     token: string | null;
+    loading: boolean;
     requestCode: (email: string,) => Promise<void>;
     verifyCode: (email: string, code: string) => Promise<void>;
     logout: () => void;
